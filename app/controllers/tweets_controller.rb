@@ -23,6 +23,8 @@ post '/tweets'  do
         @tweet.save
         user=Helpers.current_user(session)
         @tweet.user = user
+        @tweet.save
+
         redirect '/tweets'
     # end
   else
