@@ -39,7 +39,6 @@ get "/tweets/:id/edit" do
 end
 
 patch "/tweets/:id" do
-  binding.pry
   @tweet =Tweet.find_by_id(params[:id])
   @tweet.update(name:params[:content])
   redirect "/tweets/#{@tweet.id}"
