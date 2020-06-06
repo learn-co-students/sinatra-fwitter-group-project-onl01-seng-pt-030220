@@ -42,17 +42,18 @@ end
 
 
 get '/logout' do
-
-  if !!session[:user_ids]
-      redirect "/tweets"
+  if !!session[:user_id]
+     session.clear
+     redirect to "/login"
+   else
+    redirect "/"
   end
-  session.clear
-  redirect to "/login"
 
 end
 
-
-
-
+get '/users/:slug' do
+    @user = User.all.select{ |user| user.slug == params["slug"]}.first
+  erb :'users/show'
+end
 
 end
