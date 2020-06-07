@@ -52,7 +52,8 @@ get '/logout' do
 end
 
 get '/users/:slug' do
-    @user = User.all.select{ |user| user.slug == params["slug"]}.first
+  #  @user = User.all.select{ |user| user.slug == params["slug"]}.first
+  @user = User.find_by_slug(params[:slug])
   erb :'users/show'
 end
 
