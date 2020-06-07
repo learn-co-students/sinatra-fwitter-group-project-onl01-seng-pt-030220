@@ -62,10 +62,10 @@ redirect "/tweets/#{@tweet.id}"
 end
 
 get '/tweets/:id'  do
-  binding.pry
-
   if !!session[:user_id]
-     @tweet=Tweet.find_by_id(params[:id])
+     @tweet=Tweet.find_by(id: params[:id])
+
+    # binding.pry
      erb:'tweets/show'
    else
       redirect '/login'
