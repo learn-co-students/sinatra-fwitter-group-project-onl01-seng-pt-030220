@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :layout
+    erb :home
   end
 
   get "/signup" do
@@ -16,9 +16,9 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/signup" do
-    binding.pry
+    #binding.pry
     user = User.new(:email=> params[:email], :password=> params[:password], :username=> params[:username])
-    if user.save && user.email != nil
+    if user.save && user.email != nil && user.username !=nil
       redirect '/tweets'
     else
       redirect '/failure'
