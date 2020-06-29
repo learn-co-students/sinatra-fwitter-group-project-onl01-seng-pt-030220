@@ -1,0 +1,15 @@
+
+<header>Welcome,</header>
+
+<ul>
+<% @tweets.each do |tweet| %>
+  <li><%= tweet.content %></li>
+<% end %>
+</ul>
+
+<form action="/logout" method="POST">
+<button type="submit" value="submit">Logout</button>
+</form>
+
+<a href="/tweets/new">Create a tweet</a>
+<a href="/users/<%=@user.slug%> ">See your tweets</a>
